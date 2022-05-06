@@ -1,0 +1,83 @@
+** interfaces are contracts**
+Interface in literal language means Point of Contact. In a bank, we need to contact the reception to talk to the manager.
+in a bank, the form we fill is the interface for us to contact the bank manager.
+user can communicate to a webpage through some interface.
+
+API (Application Programming Interface) is the interface which is standing in between two applications is
+called Application Programming Interface.
+it is called programming interface because 2 programming applications are needing an interface to communicate.
+For example: in a login form, user enters the data using the front end application and that application will send the data
+to the backend Java application. So, there are 2 applications that are interacting at that time. To enable communication
+between this two applications, an interface needs to be established. This Interface is known as API.
+
+Within the java application also we can set up an interface which will help two components within the Java application
+to communicate to each other using a Contract. we set up a contract and both parties who wanted to communicate  should
+follow this contract.** So, whatever that is written in the implementing class is not going to work if we want to implement
+an interface using this class. Because the implementing class is bound with the interface. if we want to define anything,
+we have to define inside the methods that are overridden from the interface.**
+
+**the interface type of reference variable can be used to store the references of all the implementing classes.**
+That means, using the interface type of reference variable, we can hold the object of implementing class. Similar to
+parent, child relationship in inheritance.
+Father father=new Son(); // similar way
+Shape shape=new Circle();
+List<Shape> participants=takeListFromReception();
+for(Shape shape:participants){// this is read as for each shape present (:)in this participants list
+shape.draw();
+
+this is also an example of run time polymorphism.
+ interfaces cannot be private. It will be always public.
+ Classes can also only be public or default.
+
+ We can extend and interface and make an extended interface.
+ for eg: public interface Rectangle extends Shape{// this means that we are extending the interface Shape and creating
+ another interface Rectangle from it.
+
+while we are making the implementation of an interface using a class, the class should provide implementation for all the
+methods in the interface. Otherwise, the class will become an abstract class.
+
+** when we want to inherit along with properties and some methods can be abstract, then go for abstract classes.
+ But if we want to set up a contract before hand between 2 parties to communicate inside our Java application then
+ we go for interfaces. **
+
+**Java supports implementing multiple interfaces. But it does not support multiple inheritance**
+
+public class Circle implements Shape, Color // this is an example of implementing multiple interfaces.
+There is no confusion in implementing multiple interfaces because the class is responsible for implementing the method.
+So, even if the method names are same, there is no confusion.
+
+** In Java 8,  we can create interface having methods and its bodies.
+//in Java 8, they added some methods in the List interface. So, all the classes that implements the List interface
+had to implement the newly added method. This will create problems in all the implemented classes.. So, to avoid this,
+Java 8 declared these methods as default and provided the method's body inside the interface itself.
+it is good to declare definition for these default methods so that the implementing class is not bound to
+provide the implementation for that default methods. So, we are not compelled to override it.
+ Also, the implementing class can also override these methods and create their own definition for them if needed.
+ Therefore, whenever any changes are made at the interface level, it should not break the implementing classes.
+
+ ** Java 8 added some features of functional programming to compete with JavaScript. One of the important one is functional interfaces.
+ Functional interfaces: interfaces with only one abstract method. But, they can have other default methods. But the number of
+ abstract method is one. The Shape interface is a functional interface.
+ So, when we have a functional interface, it is possible to write a lambda expression for it.
+
+ In the Shape class, we declare a method and implemented it using another class. In the Circle class,we just wanted to
+ implement one line and created a whole class for just doing it. So to just run that method in the interface, we created a new class.
+ So, we have to create a new class and implement it. Then create an object of the class in the psvm and then access the method using
+ the object. This is the logical flow until Java 8. This tedious task was made simple by the introduction of functional
+ interfaces. This gives the touch of functional programming in Java.
+ With Java 8, the functional interfaces(interfaces with only 1 abstract method so that the compiler will not be confused),
+  can be provided with implementation from the psvm itself using the lambda expression.
+
+  An example of the lambda expression(anonymous function)is given below.
+  Shape shape=()->System.out.println("Hello"); // This will take the code to the abstract method in the interface.
+  inside (), we pass the arguments that should go into the function. Also, we don't mention the function name.
+  So, we need the parameters and what code to run while declaring a lambda expression.
+  if there are multiple sentences, we need to wrap them in curly braces.
+  **This was possible because of adding default methods.**
+  because making one of the existing abstract method as default will not made any changes in the existing system.
+  By making the abstract method as default and creating an empty body of that method helped us to make use of the
+  lambda expression(functional programming).
+  Summary: default methods were added because
+  1. while a new feature is added, we do not want to break any of the implementing classes.
+  2. make use of functional programming. passing anonymous function directly without implementing class and creating object
+  of that class to point to the method.

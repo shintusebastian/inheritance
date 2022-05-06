@@ -1,0 +1,95 @@
+System.out.println(2/0);// while we run this code, the below expression is displayed in the command window.
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at ExceptionDemo.main(ExceptionDemo.java:3)
+this is called crashing. This is an example of arithmetic exception.
+If there is any code after this crashed line, it will not run.
+
+int [] arr=new int[3];
+System.out.println(arr[8]);
+this is an example of array index out of bound.
+
+String name=null;
+        System.out.println(name.toUpperCase(Locale.ROOT));//Null Pointer Exception.
+
+        All these exceptions are called run-time exception. Also called unchecked exception.
+        The syntax errors are examples for compile-time exceptions. Checked exceptions.
+
+      logging an exception means writing a note to the user that there is an exception in the piece of code.
+
+      **Exceptions are handled using try & catch
+      the catch inhibits the exception ball to be received by the JVM.
+
+      java.lang.ArithmeticException: / by zero
+      	at ExceptionDemo.main(ExceptionDemo.java:8)
+      / by zero
+      SHINTU
+      the code after the exception handling was implemented .
+
+      **inside the try block, when an exception occurs at a line, the following lines inside the try block will not
+      get executed.** So, only the lines that we feel susceptible will be put in the try block.
+      if there is no exception, the catch block is ignored.
+      father of exception class is Throwable. under throwable, we have Exception class.
+
+      System.out.println(Integer.parseInt("1234u"));(parse is used to convert a string).
+     ** this is an example of number format exception. **
+
+
+      Stack Trace: everything in the stack.
+
+      Shape shape=new Rectangle();
+              ((Circle)shape).draw();// this is an example of Class cast exception.
+              we can only cast to a Rectangle type. not a Circle type.
+              **all the above mentioned are uncheck exceptions or run time exceptions. **
+Run time exceptions are handled using try{} catch{} methodology.
+
+
+ Examples of check exceptions are ioException, class not found exception, SQL exception, and No such method exception.
+ Because the compiler cannot see and warn these exceptions.
+
+ to provide granularity, it is better to provide catcher at different levels.
+ for ex: try{ int [] arr=new int[3];
+                     System.out.println(arr[8])
+                     //susceptible code(the code which can cause exception) is written here
+                     System.out.println(2/0);
+                 }
+                 catch(ArithmeticException e){
+                     System.out.println("Sorry. Wrong input , can't divide by 0");
+                 }
+                 catch(NumberFormatException e){
+                     System.out.println("Sorry, the format is different");
+                 }
+                 catch(Exception e){
+                 System.out.println("Something went wrong");
+                 } it is better to provide a generic catcher at the end.
+  The generic catcher should be at the last in the queue to catch any exception occurred somehow.
+   if we put a generic catcher at the end, it will show error.
+  Because all the exceptions will be caught by it. So, there is no use of other exceptions.
+  ** we can use a try block inside a try block** ** not taught in this course**
+
+  ** we always put the critical portions of the code inside a block called finally block. JVM guarantees that the code inside
+  finally block will get executed for sure. This code will always run whether or not exception occurred.
+  Even if it has a return statement before it, the finally block will get executed and then the return statement will get executed.
+  finally block will not execute only if the system is shut down.
+  Usually finally is placed after the catch.
+
+  if try is followed by finally and finally returns something, then what finally returns will be returned.
+  for ex: try{
+  return 112;
+  }
+  finally{ return 1;
+  } then it returns 1 not 112.
+
+
+  throw: is an order. we can throw an exception by ourself. if we know there is a chance an exception can occur, we can throw
+  that exception before hand. While throwing an exception, our intention is to handle it appropriately.
+  throws: is a statement. Throws is a label that we put on our method to warn the callers that this method has a chance
+  to throw an exception. if the thrown exception is a compile time exception, then the compiler will force us to put
+  a label over it to warn the callers. It also tells us that that called method has not done any exception handling using
+  try, catch. The caller can either take the responsibility to do the exception handling or pass the responsibility to
+  someone else.
+
+  Exception handling depends on the caller of the utility. if a method is not handling the exception inside it using
+  try catch, then it is a good thing. Because the exception handling inside a method will depend on the caller of the method.
+
+
+  **we need to close the connections with the resources after using it.

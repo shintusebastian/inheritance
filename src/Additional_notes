@@ -1,0 +1,6 @@
+Dependencies in Java can be managed using Maven :
+They are extra java classes combined as a jar. jar is a collection of classes. We need extra classes that are not part of JDK
+library. we will need to add those jars within our class path(project).
+If we are using a Maven project, we just mention the dependency tag (just google from the maven repository) and our job is done.
+in a Maven project, pom is the place where you add dependencies and plugins.
+after adding a dependency or plugin, we need to do "mvn clean install" command prompt.

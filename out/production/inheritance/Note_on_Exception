@@ -1,0 +1,22 @@
+System.out.println(2/0);// while we run this code, the below expression is displayed in the command window.
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+	at ExceptionDemo.main(ExceptionDemo.java:3)
+this is called crashing. This is an example of arithmetic exception.
+If there is any code after this crashed line, it will not run.
+
+int [] arr=new int[3];
+System.out.println(arr[8]);
+this is an example of array index out of bound.
+
+String name=null;
+        System.out.println(name.toUpperCase(Locale.ROOT));//Null Pointer Exception.
+
+        All these exceptions are called run-time exception. Also called unchecked exception.
+        The syntax errors are examples for compile-time exceptions. Checked exceptions.
+
+      logging an exception means writing a note to the user that there is an exception in the piece of code.
+
+      **Exceptions are handled using try & catch
+      the catch inhibits the exception ball to be received by the JVM.
+
+      Stack Trace: everything in the stack.

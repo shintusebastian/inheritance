@@ -1,0 +1,6 @@
+Java 8
+1. added functional interfaces
+2. added default concrete methods in interfaces// most popular added feature of Java 8// tell this first in interviews
+3. introduced static methods in interfaces.
+4. added constants in interfaces// but it cannot have properties.
+whatever variable we declare inside an interface will be treated as a constant.
